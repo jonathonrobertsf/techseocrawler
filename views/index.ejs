@@ -1,1 +1,31 @@
-<!-- HTML form with Bootstrap for inputs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SEO Crawler</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+    <div class="container">
+        <h1>Technical SEO Crawler</h1>
+        <form action="/crawl/single" method="post" class="mb-3">
+            <h5>Single Page</h5>
+            <input type="text" name="url" class="form-control" placeholder="Enter URL" required>
+            <button class="btn btn-primary mt-2">Check</button>
+        </form>
+
+        <form action="/crawl/multiple" method="post" class="mb-3">
+            <h5>Multiple Pages</h5>
+            <input type="text" name="url" class="form-control" placeholder="Base URL" required>
+            <input type="number" name="count" class="form-control mt-2" placeholder="No. of Pages" required>
+            <button class="btn btn-secondary mt-2">Crawl</button>
+        </form>
+
+        <form action="/crawl/sitemap" method="post" class="mb-3">
+            <h5>From XML Sitemap</h5>
+            <input type="text" name="sitemap" class="form-control" placeholder="Sitemap URL" required>
+            <button class="btn btn-success mt-2">Crawl Sitemap</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,1 +1,37 @@
-<!-- HTML to display results using accordions -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+    <div class="container">
+        <h1>Results</h1>
+        <div class="accordion" id="seoResults">
+            <% results.forEach(function(page, index) { %>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading<%= index %>">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>">
+                            <%= page.url %>
+                        </button>
+                    </h2>
+                    <div id="collapse<%= index %>" class="accordion-collapse collapse" data-bs-parent="#seoResults">
+                        <div class="accordion-body">
+                            <% if (page.issues.length > 0) { %>
+                                <ul>
+                                    <% page.issues.forEach(function(issue) { %>
+                                        <li><%= issue %></li>
+                                    <% }); %>
+                                </ul>
+                            <% } else { %>
+                                <p>No issues found 🎉</p>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</body>
+</html>
